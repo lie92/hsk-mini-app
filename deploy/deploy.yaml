@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hsk-deployment
+  labels:
+    app: hsk
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: hsk
+  template:
+    metadata:
+      labels:
+        app: hsk
+    spec:
+      containers:
+      - name: hsk
+        image: bigboss96/hsk:0.1
+        ports:
+        - containerPort: 5000
+
